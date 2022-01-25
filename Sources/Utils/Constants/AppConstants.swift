@@ -91,6 +91,7 @@ public class AppStrings {
     public static let buyTap = "Buy appname"
     public static let settings = "Settings"
     public static let logout = "Log out"
+    public static let analytics = "Analytics"
     
     public static let whichTapProductWouldYou = "Choose the device you are activating"
     
