@@ -18,7 +18,7 @@ public struct NFCButton : UIViewRepresentable {
     
     public func makeUIView(context: UIViewRepresentableContext<NFCButton>) -> UIButton {
         let button = UIButton()
-        button.setTitle(AppStrings.readTap.localized(), for: .normal)
+        button.setTitle(AppStrings.readTap.localized1(), for: .normal)
         button.contentHorizontalAlignment = .left
         button.backgroundColor = UIColor.black
         button.addTarget(context.coordinator, action: #selector(context.coordinator.beginScan(_:)), for: .touchUpInside)
@@ -79,7 +79,7 @@ public struct NFCButton : UIViewRepresentable {
             }
 
             session = NFCNDEFReaderSession(delegate: self, queue: .main, invalidateAfterFirstRead: true)
-            session?.alertMessage = AppStrings.holdToScan.localized()
+            session?.alertMessage = AppStrings.holdToScan.localized1()
             session?.begin()
         }
 
