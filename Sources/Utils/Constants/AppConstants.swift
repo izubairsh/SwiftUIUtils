@@ -80,7 +80,7 @@ public class AppStrings {
     public static let makeProfilePrivate = "Make Profile Private"
     
     
-    public static let othersCanViewYourProfile = "Others can view your profile using the link"Bundle
+    public static let othersCanViewYourProfile = "Others can view your profile using the link"
     
     public static let home = "Home"
     public static let activate = "Activate"
