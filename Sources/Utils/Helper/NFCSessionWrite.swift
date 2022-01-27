@@ -21,7 +21,7 @@ public class NFCSessionWrite : NSObject, NFCNDEFReaderSessionDelegate {
         self.message = message
         self.recordType = recordType
         session = NFCNDEFReaderSession(delegate: self, queue: nil, invalidateAfterFirstRead: false)
-        session?.alertMessage = AppStrings.holdToActivate.localized1()
+        session?.alertMessage = AppStrings.holdToActivate.localized()
         session?.begin()
     }
     
