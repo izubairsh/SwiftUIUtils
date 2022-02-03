@@ -18,4 +18,7 @@ extension Color {
     public static var backgroundColor: Color {
         return Color(UIColor(named: "BackgroundColor")!)
     }
+    public static var textColor: Color {
+        return Color(UIColor(named: "TextColor")!)
+    }
 }

@@ -199,7 +199,7 @@ extension NFCUtility {
                     return
                 }
                 if self.completion != nil {
-                    self.read(tag: tag, alertMessage: "Successfully setup.")
+                    self.read(tag: tag, alertMessage: "Card activated successfully")
                 }
             }
         }
