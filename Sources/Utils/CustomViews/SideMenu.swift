@@ -30,12 +30,12 @@ struct SideMenu<MenuContent: View>: ViewModifier {
             ZStack(alignment: .leading) {
                 content
                     .frame(width: geometry.size.width, height: geometry.size.height)
-                    .offset(x: self.isShowing ? geometry.size.width / 2 : 0)
+                    .offset(x: self.isShowing ? geometry.size.width / 1.8 : 0)
                 
                 menuContent()
-                    .frame(width: geometry.size.width / 2)
+                    .frame(width: geometry.size.width / 1.8)
                     .transition(.move(edge: .leading))
-                    .offset(x: self.isShowing ? 0 : -geometry.size.width / 2)
+                    .offset(x: self.isShowing ? 0 : -geometry.size.width / 1.8)
                 
             }.gesture(drag)
             
