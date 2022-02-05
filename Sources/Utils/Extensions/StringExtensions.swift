@@ -34,11 +34,9 @@ extension String {
     public func localized() -> String {
         let path = Bundle.main.path(forResource: UserDefaults.language, ofType: "lproj")
         guard let path = path else {
-            print("invalid")
             return self
         }
         guard let bundle = Bundle(path: path) else {
-            print("invalid")
             return self
         }
         return NSLocalizedString(self, tableName: nil, bundle: bundle, value: "", comment: "")
