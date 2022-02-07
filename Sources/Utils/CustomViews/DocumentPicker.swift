@@ -19,7 +19,7 @@ public struct DocumentPicker: UIViewControllerRepresentable {
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
-    var url: Binding<URL?>?
+    var data: Binding<Data?>?
     var onCancel: (() -> Void)?
     
     public func makeUIViewController(context: Context) -> UIViewControllerType {
@@ -40,7 +40,13 @@ public struct DocumentPicker: UIViewControllerRepresentable {
         }
         
         public func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
-            base.url?.wrappedValue = urls[0]
+            
+            do {
+                base.data?.wrappedValue = try Data(contentsOf: urls[0])
+            }
+            catch {
+                print("Error \(error)")
+            }
             base.presentationMode.wrappedValue.dismiss()
         }
         
@@ -63,10 +69,10 @@ public struct DocumentPicker: UIViewControllerRepresentable {
 extension DocumentPicker {
     
     public init(
-        url: Binding<URL?>,
+        data: Binding<Data?>,
         onCancel: (() -> Void)? = nil
     ) {
-        self.url = url
+        self.data = data
         self.onCancel = onCancel
     }
     
