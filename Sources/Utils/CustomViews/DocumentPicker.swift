@@ -38,50 +38,18 @@ public struct DocumentPicker: UIViewControllerRepresentable {
         init(base: DocumentPicker) {
             self.base = base
         }
-        
-        public func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentAt url: URL) {
-            // Start accessing a security-scoped resource.
-                guard url.startAccessingSecurityScopedResource() else {
-                    // Handle the failure here.
-                    return
-                }
-
-                // Make sure you release the security-scoped resource when you finish.
-                defer { url.stopAccessingSecurityScopedResource() }
-
-                // Use file coordination for reading and writing any of the URL’s content.
-                var error: NSError? = nil
-                NSFileCoordinator().coordinate(readingItemAt: url, error: &error) { (url) in
-                        
-                    let keys : [URLResourceKey] = [.nameKey, .isDirectoryKey]
-                        
-                    // Get an enumerator for the directory's content.
-                    guard let fileList =
-                        FileManager.default.enumerator(at: url, includingPropertiesForKeys: keys) else {
-                        Swift.debugPrint("*** Unable to access the contents of \(url.path) ***\n")
-                        return
-                    }
-                        
-                    for case let file as URL in fileList {
-                        // Start accessing the content's security-scoped URL.
-                        guard url.startAccessingSecurityScopedResource() else {
-                            // Handle the failure here.
-                            continue
-                        }
-
-                        // Do something with the file here.
-                        Swift.debugPrint("chosen file: \(file.lastPathComponent)")
-                        do{
-                            base.data?.wrappedValue = try Data(contentsOf: file)
-                        }catch{
-                            Swift.debugPrint("*** Unable to access the contents of \(url.path) ***\n")
-                        }
-                       
-                        // Make sure you release the security-scoped resource when you finish.
-                        url.stopAccessingSecurityScopedResource()
-                        base.presentationMode.wrappedValue.dismiss()
-                    }
-                }
+        public func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+            let url = urls.first!
+            guard url.startAccessingSecurityScopedResource() else {
+                print("can't access")
+                return
+            }
+            defer { url.stopAccessingSecurityScopedResource() }
+            do {
+                base.data?.wrappedValue = try Data(contentsOf: url)
+            } catch {
+                print(error)
+            }
         }
         
         public func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
