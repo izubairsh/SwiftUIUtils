@@ -19,7 +19,7 @@ public struct DocumentPicker: UIViewControllerRepresentable {
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
-    var url: Binding<URL?>?
+    var data: Binding<Data?>?
     var onCancel: (() -> Void)?
     
     public func makeUIViewController(context: Context) -> UIViewControllerType {
@@ -71,7 +71,12 @@ public struct DocumentPicker: UIViewControllerRepresentable {
 
                         // Do something with the file here.
                         Swift.debugPrint("chosen file: \(file.lastPathComponent)")
-                        base.url?.wrappedValue = file
+                        do{
+                            base.data?.wrappedValue = try Data(contentsOf: file)
+                        }catch{
+                            Swift.debugPrint("*** Unable to access the contents of \(url.path) ***\n")
+                        }
+                       
                         // Make sure you release the security-scoped resource when you finish.
                         url.stopAccessingSecurityScopedResource()
                         base.presentationMode.wrappedValue.dismiss()
@@ -98,10 +103,10 @@ public struct DocumentPicker: UIViewControllerRepresentable {
 extension DocumentPicker {
     
     public init(
-        url: Binding<URL?>,
+        data: Binding<Data?>,
         onCancel: (() -> Void)? = nil
     ) {
-        self.url = url
+        self.data = data
         self.onCancel = onCancel
     }
     
