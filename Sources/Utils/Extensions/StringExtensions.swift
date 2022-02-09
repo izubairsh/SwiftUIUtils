@@ -32,7 +32,7 @@ extension String {
     }
 
     public func localized() -> String {
-        let path = Bundle.main.path(forResource: (UserDefaults.standard.string(forKey: "language") ?? "en"), ofType: "lproj")
+        let path = Bundle.main.path(forResource: UserDefaults.language, ofType: "lproj")
         guard let path = path else {
             return self
         }
