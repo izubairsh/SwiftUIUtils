@@ -7,6 +7,7 @@
 
 import Foundation
 import FLAnimatedImage
+import SwiftUI
 
 public struct GifView: UIViewRepresentable{
     
