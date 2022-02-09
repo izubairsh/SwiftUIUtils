@@ -12,8 +12,8 @@ extension Image {
     public func circleImageModifier(width: CGFloat = 200, height: CGFloat = 200, padding: CGFloat = 0, backgroundColor: Color = Color.white, foregroundColor: Color = .black) -> some View {
         self
             .resizable()
-            .frame(width: width, height: height)
             .scaledToFit()
+            .frame(width: width, height: height)
             .padding(padding)
             .foregroundColor(foregroundColor)
             .background(backgroundColor)
@@ -23,14 +23,15 @@ extension Image {
 }
 
 extension WebImage {
-    public func circleImageModifier(width: CGFloat = 200, height: CGFloat = 200, padding: CGFloat = 0) -> some View {
+    public func circleImageModifier(width: CGFloat = 200, height: CGFloat = 200, padding: CGFloat = 0, backgroundColor: Color = Color.white, foregroundColor: Color = .black, placeholder: Image) -> some View {
         self
             .resizable()
-            .placeholder(Image(systemName: "person"))
-            .frame(width: width, height: height)
+            .placeholder(placeholder)
             .scaledToFit()
+            .frame(width: width, height: height)
             .padding(padding)
-            .background(Color.white)
+            .foregroundColor(foregroundColor)
+            .background(backgroundColor)
             .clipShape(Circle())
             .shadow(radius: 10)
    }

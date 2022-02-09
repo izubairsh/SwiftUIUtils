@@ -31,8 +31,8 @@ extension String {
         return URL(string: urlString)
     }
 
-    public func localized() -> String {
-        let path = Bundle.main.path(forResource: UserDefaults.language, ofType: "lproj")
+    public func localized(language: String) -> String {
+        let path = Bundle.main.path(forResource: language, ofType: "lproj")
         guard let path = path else {
             return self
         }

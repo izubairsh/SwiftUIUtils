@@ -234,12 +234,12 @@ public struct CustomPickerTextField : UIViewRepresentable {
             return self.parent.data.count
         }
         public func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-            return self.parent.data[row].localized()
+            return self.parent.data[row]
         }
         public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
             self.parent.$selectionIndex.wrappedValue = row+1
             
-            self.parent.text = self.parent.data[row].localized()
+            self.parent.text = self.parent.data[row]
             self.parent.textField.endEditing(true)
             
         }

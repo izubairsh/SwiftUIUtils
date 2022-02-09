@@ -10,13 +10,12 @@ import Foundation
 import SwiftUI
 
 extension Text {
-    public func circleTextModifier(width: CGFloat = 200, height: CGFloat = 200) -> some View {
+    public func circleTextModifier(width: CGFloat = 200, height: CGFloat = 200, padding: CGFloat = 0, backgroundColor: Color = Color.white, foregroundColor: Color = .black) -> some View {
         self
-            .font(.title)
             .frame(width: width, height: height)
-            .aspectRatio(1.0, contentMode: .fit)
-            .foregroundColor(.white)
-            .background(Color.black)
+            .padding(padding)
+            .foregroundColor(foregroundColor)
+            .background(backgroundColor)
             .clipShape(Circle())
             .shadow(radius: 10)
    }
