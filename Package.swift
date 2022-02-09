@@ -15,7 +15,8 @@ let package = Package(
             targets: ["SwiftUIUtils"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/SDWebImage/SDWebImageSwiftUI.git", from: "2.0.2")
+        .package(url: "https://github.com/SDWebImage/SDWebImageSwiftUI.git", from: "2.0.2"),
+        .package(url: "https://github.com/Flipboard/FLAnimatedImage.git", .upToNextMajor(from: "1.0.16"))
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
     ],
@@ -24,7 +25,7 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "SwiftUIUtils",
-            dependencies: ["SDWebImageSwiftUI"],
+            dependencies: ["SDWebImageSwiftUI", "FLAnimatedImage"],
             path: "Sources"
         ),
         .testTarget(
