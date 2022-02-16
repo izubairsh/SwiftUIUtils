@@ -8,96 +8,96 @@
 import Foundation
 import SwiftUI
 
-public struct CustomTextField: View {
-    var placeholder: String = ""
-    var height: CGFloat = 60
-    @Binding var text: String
-    
-    public init(placeholder: String = "", height: CGFloat = 60, text: Binding<String>){
-        self.placeholder = placeholder
-        self.height = height
-        self._text = text
-    }
-    
-    public var body: some View {
-        TextField(placeholder, text: $text)
-            .textContentType(.oneTimeCode)
-            .autocapitalization(.none)
-            .frame(height: height)
-            .padding(.horizontal, 10)
-            .overlay(RoundedRectangle(cornerRadius: 6).stroke(Color.black, lineWidth: 1))
-            
-    }
-}
-
-public struct CustomTextField1: View {
-    var placeholder: String = ""
-    var height: CGFloat = 60
-    @Binding var text: String
-    @Binding var error: String
-    
-    public init(placeholder: String = "", height: CGFloat = 60, text: Binding<String>, error: Binding<String>){
-        self.placeholder = placeholder
-        self.height = height
-        self._text = text
-        self._error = error
-    }
-    
-    public var body: some View {
-        VStack(alignment: .leading, spacing: 2){
-        TextField(placeholder, text: $text)
-            .textContentType(.oneTimeCode)
-            .autocapitalization(.none)
-            .frame(height: height)
-            .padding(.horizontal, 10)
-            .overlay(RoundedRectangle(cornerRadius: 6).stroke(Color.black, lineWidth: 1))
-            Text(error)
-                .foregroundColor(.red)
-        }
-    }
-}
-
-public struct SecureTextField: View {
-    var placeholder: String
-    var height: CGFloat = 60
-    @Binding var text: String
-    @Binding var error: String
-    @State private var isSecured: Bool = true
-    
-    public init(placeholder: String = "", height: CGFloat = 60, text: Binding<String>, error: Binding<String>){
-        self.placeholder = placeholder
-        self.height = height
-        self._text = text
-        self._error = error
-    }
-    
-    public var body: some View {
-        VStack(alignment: .leading, spacing: 2){
-            ZStack(alignment: .trailing){
-                VStack{
-                    if isSecured {
-                        SecureField(placeholder, text: $text)
-                            .textContentType(.oneTimeCode)
-                    } else {
-                        TextField(placeholder, text: $text)
-                    }
-                }
-                .textContentType(.oneTimeCode)
-                .autocapitalization(.none)
-                .frame(height: height)
-                .padding(.horizontal, 10)
-                .overlay(RoundedRectangle(cornerRadius: 6).stroke(Color.black, lineWidth: 1))
-                Image(systemName: isSecured ? "eye" : "eye.slash")
-                    .padding(.trailing)
-                    .onTapGesture {
-                        isSecured.toggle()
-                    }
-            }
-            Text(error)
-                .foregroundColor(.red)
-        }
-    }
-}
+//public struct CustomTextField: View {
+//    var placeholder: String = ""
+//    var height: CGFloat = 60
+//    @Binding var text: String
+//
+//    public init(placeholder: String = "", height: CGFloat = 60, text: Binding<String>){
+//        self.placeholder = placeholder
+//        self.height = height
+//        self._text = text
+//    }
+//
+//    public var body: some View {
+//        TextField(placeholder, text: $text)
+//            .textContentType(.oneTimeCode)
+//            .autocapitalization(.none)
+//            .frame(height: height)
+//            .padding(.horizontal, 10)
+//            .overlay(RoundedRectangle(cornerRadius: 6).stroke(Color.black, lineWidth: 1))
+//
+//    }
+//}
+//
+//public struct CustomTextField1: View {
+//    var placeholder: String = ""
+//    var height: CGFloat = 60
+//    @Binding var text: String
+//    @Binding var error: String
+//
+//    public init(placeholder: String = "", height: CGFloat = 60, text: Binding<String>, error: Binding<String>){
+//        self.placeholder = placeholder
+//        self.height = height
+//        self._text = text
+//        self._error = error
+//    }
+//
+//    public var body: some View {
+//        VStack(alignment: .leading, spacing: 2){
+//        TextField(placeholder, text: $text)
+//            .textContentType(.oneTimeCode)
+//            .autocapitalization(.none)
+//            .frame(height: height)
+//            .padding(.horizontal, 10)
+//            .overlay(RoundedRectangle(cornerRadius: 6).stroke(Color.black, lineWidth: 1))
+//            Text(error)
+//                .foregroundColor(.red)
+//        }
+//    }
+//}
+//
+//public struct SecureTextField: View {
+//    var placeholder: String
+//    var height: CGFloat = 60
+//    @Binding var text: String
+//    @Binding var error: String
+//    @State private var isSecured: Bool = true
+//
+//    public init(placeholder: String = "", height: CGFloat = 60, text: Binding<String>, error: Binding<String>){
+//        self.placeholder = placeholder
+//        self.height = height
+//        self._text = text
+//        self._error = error
+//    }
+//
+//    public var body: some View {
+//        VStack(alignment: .leading, spacing: 2){
+//            ZStack(alignment: .trailing){
+//                VStack{
+//                    if isSecured {
+//                        SecureField(placeholder, text: $text)
+//                            .textContentType(.oneTimeCode)
+//                    } else {
+//                        TextField(placeholder, text: $text)
+//                    }
+//                }
+//                .textContentType(.oneTimeCode)
+//                .autocapitalization(.none)
+//                .frame(height: height)
+//                .padding(.horizontal, 10)
+//                .overlay(RoundedRectangle(cornerRadius: 6).stroke(Color.black, lineWidth: 1))
+//                Image(systemName: isSecured ? "eye" : "eye.slash")
+//                    .padding(.trailing)
+//                    .onTapGesture {
+//                        isSecured.toggle()
+//                    }
+//            }
+//            Text(error)
+//                .foregroundColor(.red)
+//        }
+//    }
+//}
 
 public struct DatePickerTextField: UIViewRepresentable {
     
