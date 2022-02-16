@@ -57,7 +57,7 @@ extension String {
         return nil
     }
     
-    func hexToColor () -> Color {
+    public func hexToColor () -> Color {
             var cString:String = self.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
 
             if (cString.hasPrefix("#")) {
