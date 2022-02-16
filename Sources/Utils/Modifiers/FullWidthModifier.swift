@@ -9,6 +9,8 @@ import Foundation
 import SwiftUI
 
 public struct FullWidthModifier: ViewModifier {
+    
+    public init(){}
     public func body(content: Content) -> some View {
         content
             .frame(maxWidth: .infinity)
