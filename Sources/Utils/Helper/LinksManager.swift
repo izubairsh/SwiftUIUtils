@@ -15,6 +15,10 @@ public class LinksManager {
         if let iOSURL = iOSURL {
             if UIApplication.shared.canOpenURL(iOSURL) {
                 UIApplication.shared.open(iOSURL)
+            }else if let webURL = webURL{
+                if UIApplication.shared.canOpenURL(webURL) {
+                    UIApplication.shared.open(webURL)
+                }
             }
         } else if let webURL = webURL{
             if UIApplication.shared.canOpenURL(webURL) {
