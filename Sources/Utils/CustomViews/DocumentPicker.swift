@@ -19,6 +19,7 @@ public struct DocumentPicker: UIViewControllerRepresentable {
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
+    var value: Binding<String>?
     var data: Binding<Data?>?
     var onCancel: (() -> Void)?
     
@@ -47,6 +48,7 @@ public struct DocumentPicker: UIViewControllerRepresentable {
             defer { url.stopAccessingSecurityScopedResource() }
             do {
                 base.data?.wrappedValue = try Data(contentsOf: url)
+                base.value?.wrappedValue = url.lastPathComponent
             } catch {
                 print(error)
             }
@@ -71,9 +73,11 @@ public struct DocumentPicker: UIViewControllerRepresentable {
 extension DocumentPicker {
     
     public init(
+        value: Binding<String>,
         data: Binding<Data?>,
         onCancel: (() -> Void)? = nil
     ) {
+        self.value = value
         self.data = data
         self.onCancel = onCancel
     }
