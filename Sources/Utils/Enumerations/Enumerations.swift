@@ -22,7 +22,7 @@ public enum FieldType{
         case .username:
             return "^[a-zA-Z0-9_.-]*$"
         case .password:
-            return "^(?=.*?[A-Z,a-z])(?=.*?[0-9]).{7,16}$"
+            return "^(?=.*?[A-Z,a-z])(?=.*?[0-9])(?!.*?[ ]).{8,16}$"
         default:
             return ""
         }
