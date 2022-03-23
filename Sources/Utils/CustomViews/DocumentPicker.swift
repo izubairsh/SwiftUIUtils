@@ -7,11 +7,10 @@
 
 import Foundation
 import SwiftUI
-import MobileCoreServices
+
 
 #if os(iOS) || targetEnvironment(macCatalyst)
-
-import SwiftUI
+import MobileCoreServices
 
 /// A SwiftUI port of `UIDocumentPickerViewController`.
 public struct DocumentPicker: UIViewControllerRepresentable {

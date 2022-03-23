@@ -4,7 +4,7 @@
 //
 //  Created by Zubair Sheikh on 09/02/2022.
 //
-
+#if os(iOS)
 import Foundation
 import FLAnimatedImage
 import SwiftUI
@@ -44,3 +44,4 @@ public struct GifView: UIViewRepresentable{
         
     }
 }
+#endif

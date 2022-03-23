@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import SDWebImageSwiftUI
 
 extension Image {
     public func circleImageModifier(width: CGFloat = 200, height: CGFloat = 200, padding: CGFloat = 0, backgroundColor: Color = Color.white, foregroundColor: Color = .black) -> some View {
@@ -22,6 +21,8 @@ extension Image {
    }
 }
 
+#if os(iOS)
+import SDWebImageSwiftUI
 extension WebImage {
     public func circleImageModifier(width: CGFloat = 200, height: CGFloat = 200, padding: CGFloat = 0, backgroundColor: Color = Color.white, foregroundColor: Color = .black, placeholder: Image) -> some View {
         self
@@ -37,3 +38,4 @@ extension WebImage {
    }
 }
 
+#endif
