@@ -15,7 +15,7 @@ dependencies: [
 Alternatively, you can also add the SwiftUIUtils package as a dependency using Xcode. To do so, open your project in Xcode, navigate to the "Swift Packages" tab in the project settings, and click the "+" button to add a new package. Enter the URL of this repository and choose the appropriate version.
 
 ## Usage
-The SwiftUICustomComponents package contains a variety of custom views, extensions, helper functions, delegates, and modifiers for SwiftUI, including:
+The SwiftUIUtils package contains a variety of custom views, extensions, helper functions, delegates, and modifiers for SwiftUI, including:
 
 ### Custom Views
 CircularProgressView - a circular progress view with customizable colors and animation
@@ -26,26 +26,16 @@ Color+Hex - an extension that allows you to create a Color from a hex code strin
 Image+Color - an extension that allows you to create an Image from a solid color
 View+DismissKeyboard - an extension that adds a tap gesture recognizer to dismiss the keyboard when tapping outside of a text field
 
-### Helper Functions
-applyDropShadow() - applies a drop shadow to a view
-createGradient() - creates a gradient background for a view
-makeRounded() - rounds the corners of a view
-scaleEffectOnTap() - scales a view on tap
-slideInFrom() - animates a view's entrance from a given direction
-toggleStyle() - creates a custom toggle style for a Toggle view
-
 ### Delegates
-KeyboardAwareDelegate - a delegate that adjusts the view's position when the keyboard appears or disappears
+DragRelocateDelegate - is a custom delegate that can be used with SwiftUI's `DragGesture` to enable dragging and reordering of a list of views. When you apply the `DragGesture` to a view and set its delegate to `DragRelocateDelegate`, users can drag and relocate the view within the list by tapping and holding the view and then dragging it to a new location.
 
 ### Modifiers
-CardModifier - a modifier that applies a card-style background to a view
-GradientBackgroundModifier - a modifier that applies a gradient background to a view
-RoundedCornersModifier - a modifier that rounds the corners of a view
-ScaleOnTapModifier - a modifier that scales a view on tap
+FullWidthModifier - that expands a view to the full width of its parent container.
+
 To use these components in your own SwiftUI code, simply import the SwiftUIUtils module at the top of your file:
 
 ```swift
-import SwiftUICustomComponents
+import SwiftUIUtils
 ```
 
 Then, you can use any of the components listed above in your SwiftUI code.
