@@ -10,6 +10,7 @@ To use these components in your own SwiftUI project, you can simply add the `Swi
 dependencies: [
     .package(url: "https://github.com/izubairsh/SwiftUIUtils.git", from: "1.0.0")
 ]
+```
 
 Alternatively, you can also add the SwiftUIUtils package as a dependency using Xcode. To do so, open your project in Xcode, navigate to the "Swift Packages" tab in the project settings, and click the "+" button to add a new package. Enter the URL of this repository and choose the appropriate version.
 
@@ -45,6 +46,7 @@ To use these components in your own SwiftUI code, simply import the SwiftUIUtils
 
 ```swift
 import SwiftUICustomComponents
+```
 
 Then, you can use any of the components listed above in your SwiftUI code.
 
